@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router';
 import { useRecoilState } from 'recoil';
 
 import MonitorSizeList from './DropBoxList/MonitorSizeList';
@@ -7,6 +8,7 @@ import DistanceToFaceList from './DropBoxList/DistanceToFaceList';
 import { showListState } from '../atom';
 
 const Setting = () => {
+  const history = useHistory();
   const [showList, setShowList] = useRecoilState(showListState);
   const [settingData, setSettingData] = useState();
 
@@ -20,6 +22,10 @@ const Setting = () => {
         setSettingData(data);
       });
   }, []);
+
+  const handleStart = () => {
+    history.push('/demo');
+  };
 
   return (
     <Parent>
@@ -44,7 +50,7 @@ const Setting = () => {
         </DistanceDropMenu>
       </SettingContainer>
       <BtnContainer>
-        <StartBtn>Start</StartBtn>
+        <StartBtn onClick={handleStart}>Start</StartBtn>
         <CalibrationBtn>Simple Calibration</CalibrationBtn>
       </BtnContainer>
     </Parent>
