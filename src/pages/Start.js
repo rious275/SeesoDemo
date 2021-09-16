@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { useHistory } from 'react-router-dom';
@@ -14,7 +14,7 @@ const Start = () => {
 
   return (
     <Container>
-      <WebcamIcon alt="" src="images/icon_webcam.svg" dragggable="true" />
+      <WebcamIcon alt="" src="images/icon_webcam.svg" />
       <GuideText>상단의 아이콘을 드래그해서 웹캠 위치를 알려주세요.</GuideText>
       <NextBtn onClick={handleNext}>NEXT</NextBtn>
       <BrochureLink href={BROCHURE_URL} target="_blank">
